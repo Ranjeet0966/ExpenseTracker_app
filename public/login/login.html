@@ -1,0 +1,207 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity=""
+      crossorigin="anonymous"
+    />
+    <title>Login</title>
+  </head>
+  <body  style="background-image: url(https://cdn.wallpapersafari.com/2/33/MZpfzD.jpg); background-size: cover; height: 100vh;">
+    <header id="main-header" class=" text-white p-1 mb-3">
+      <div class="container">
+        <div class="row mr-5 p-2">
+          <div class="col-md-6">
+            <h1 id="header-title">LogIn</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div id="main" >
+        <form action="/user/login" method="post" id="form" novalidate>
+          <label for="email" class="form-label  text-white" ><h2>Email</h2></label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+          />
+          <label for="password" class="form-control-label text-white"><h2>Password</h2></label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+          />
+          <br />
+          <button type="submit" class="btn btn-primary">Login</button>
+
+          <p class="" style="color: #f8f6f5">
+           
+            <a href="../signup/signup.html" style="color: #0ab20d"
+              ><h6> Don't have an account?Register here</h6></a
+            >
+          </p>
+          <p class="" style="color: #ece4e4">
+            Forgot Password?
+            
+            <a href="../login/forgotpassword.html" style="color: #ec1d1d"
+              >Click here</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity=""
+    crossorigin="anonymous"
+  />
+  <style>
+    body {
+      background-image: url(https://cdn.wallpapersafari.com/2/33/MZpfzD.jpg); background-size: cover; height: 100vh;
+      background-color: #d52828;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+     font-family: cursive;
+      background-color: #04124ac7;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #header-title {
+      color: #ffffff;
+      font-size: 36px;
+      margin: 0;
+    }
+
+    #main {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #main-content {
+      background-color:transparent;
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(182, 29, 29, 0.3);
+    }
+
+    .form-label,
+    .form-control,
+    .btn-primary {
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    p {
+      color: #dc3b3b;
+      margin-bottom: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    h6 {
+      color: #28a745;
+      margin: 0;
+      display: inline;
+    }
+
+    a {
+      color: #007bff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <title>Login</title>
+</head>
+<body>
+  <header id="main-header">
+    <div>
+      <h1 id="header-title">Login</h1>
+    </div>
+  </header>
+
+  <div id="main">
+    <div id="main-content">
+      <form action="/user/login" method="post" id="form" novalidate>
+        <label for="email" class="form-label"><h2>Email</h2></label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter Email"
+          required
+        />
+        <label for="password" class="form-label"><h2>Password</h2></label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Enter Password"
+          required
+        />
+        <button type="submit" class="btn btn-primary">Login</button>
+
+        <p>
+          <a href="../signup/signup.html"><h6>Don't have an account? Register here</h6></a>
+        </p>
+        <p>
+          Forgot Password? <a href="../login/forgotpassword.html">Click here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
+
