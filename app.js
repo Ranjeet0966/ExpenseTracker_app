@@ -51,12 +51,12 @@ app.use("/purchase", purchaseRouter);
 app.use("/premium", premiumRouter);
 app.use("/password", forgotPasswordRouter);
 
-// app.use((req, res) => {
-//   //res.sendFile(path.join(__dirname, `public/${req.url}`));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, `public/${req.url}`));
   
-//     res.sendFile('signup.html', {root: 'signup'})
+    
 
-// });
+});
 
 User.hasMany(Expenses);
 Expenses.belongsTo(User);
