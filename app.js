@@ -37,13 +37,16 @@ const accessLogStream = fs.createWriteStream(
 app.use(morgan("combined", { stream: accessLogStream }));*/
 
 app.use(bodyParser.json({ extended: false }));
-app.use(express.static('public'));
-app.get("/" ,(req, res) => {
-  //res.sendFile(path.join(__dirname, `public/${req.url}`));
+// app.use(express.static('public'));
+// // app.get("/" ,(req, res) => {
+// //   //res.sendFile(path.join(__dirname, `public/${req.url}`));
   
-    res.sendFile('signup.html', {root: 'signup'})
+// //     res.sendFile('signup.html', {root: 'signup'})
 
-});
+// // });
+// app.use("/",(res,req)=>{
+//   console.log("hi welcome to mpu");
+// })
 app.use("/user", signUpRouter);
 app.use("/user", logInRouter);
 app.use("/user", expenseRouter);
