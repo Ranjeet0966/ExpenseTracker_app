@@ -7,8 +7,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 
-const app = express();
-//const router = require('./routes/password'); 
+const app = express(); 
 const Sequelize = require("./util/database");
 const signUpRouter = require("./routes/sign-up");
 const logInRouter = require("./routes/login");
@@ -37,14 +36,8 @@ const accessLogStream = fs.createWriteStream(
 app.use(morgan("combined", { stream: accessLogStream }));*/
 
 app.use(bodyParser.json({ extended: false }));
-// app.use(express.static('public'));
-// // app.get("/" ,(req, res) => {
-// //   //res.sendFile(path.join(__dirname, `public/${req.url}`));
-  
-// //     res.sendFile('signup.html', {root: 'signup'})
 
-// // });
-// app.use("/",(res,req)=>{
+// app.use("/",(req,res)=>{
 //   console.log("hi welcome to mpu");
 // })
 app.use("/user", signUpRouter);

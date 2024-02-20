@@ -1,6 +1,6 @@
 const Sib = require("sib-api-v3-sdk");
 require("dotenv").config();
-// import { v4 as uuidv4 } from 'uuid';
+
 const { v4: uuidv4 } = require("uuid");
 const ForgotPassword = require("../models/forgotpassword");
 const sequelize = require("../util/database");
@@ -23,7 +23,7 @@ if (user) {
         
       });
 
-      const url = `http://15.206.165.227:3000/password/forgotpassword/${uuid}`;
+      const url = `http://localhost:3000/password/forgotpassword/${uuid}`;
       console.log(url);
 
       const client = Sib.ApiClient.instance;
@@ -65,8 +65,7 @@ if (user) {
 exports.resetPassword = async (req, res) => {
   try {
 
-    // console.log("ASDFG");
-    // console.log(req.params, "wow");
+   
   
 
     console.log("ASDFG");
@@ -85,7 +84,7 @@ exports.resetPassword = async (req, res) => {
       </script>
 
 
-      <form action="http://15.206.165.227:3000/password/updatepassword/${id}" method="GET">
+      <form action="http://localhost:3000/password/updatepassword/${id}" method="GET">
           <label for="newpassword">Enter New password</label>
           <input name="newpassword" type="password" required></input>
           <button>reset password</button>

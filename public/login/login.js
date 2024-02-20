@@ -16,7 +16,7 @@ form.addEventListener("submit", async function (e) {
 
     try {
       const res = await axios.post(
-        "http://15.206.165.227:3000/user/login",
+        "http://localhost:3000/user/login",
         logInDetails
       );
       if (res.status === 202) {

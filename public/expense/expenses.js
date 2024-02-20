@@ -39,7 +39,7 @@ async function addItem(e) {
   };
 
   await axios
-    .post("http://15.206.165.227:3000/user/add-expense", obj, {
+    .post("http://localhost:3000/user/add-expense", obj, {
       headers: { Authorization: token },
     })
     .then((res) => (obj.id = res.data))
@@ -81,7 +81,7 @@ function show(obj) {
     const id = obj.id;
     itemList.removeChild(li);
     await axios
-      .delete(`http://15.206.165.227:3000/user/delete-expense/${id}`, {
+      .delete(`http://localhost:3000/user/delete-expense/${id}`, {
         headers: { Authorization: token },
       })
       .catch((err) => console.log(err));
@@ -101,7 +101,7 @@ ispremium();
   const numberOfRows = localStorage.getItem("rows") || 10;
   const page = 1;
   const response = await axios.post(
-    `http://15.206.165.227:3000/user/expenses?page=${page}`,
+    `http://localhost:3000/user/expenses?page=${page}`,
     { numberOfRows },
     { headers: { Authorization: token } }
   );
@@ -114,7 +114,7 @@ window.addEventListener("DOMContentLoaded", showAllExpenses);
 btnBuyPremium.onclick = async function (e) {
   const token = localStorage.getItem("token");
   const response = await axios.get(
-    "http://15.206.165.227:3000/purchase/premiummembership",
+    "http://localhost:3000/purchase/premiummembership",
     { headers: { Authorization: token } }
   );
   let options = {
@@ -122,7 +122,7 @@ btnBuyPremium.onclick = async function (e) {
     order_id: response.data.order.id,
     handler: async function (response) {
       await axios.post(
-        "http://15.206.165.227:3000/purchase/updatetransactionstatus",
+        "http://localhost:3000/purchase/updatetransactionstatus",
         {
           order_id: options.order_id,
           payment_id: response.razorpay_payment_id,
@@ -145,7 +145,7 @@ btnBuyPremium.onclick = async function (e) {
 
 const ispremium = async (e) => {
   const response = await axios.get(
-    "http://15.206.165.227:3000/user/is-premium-user",
+    "http://localhost:3000/user/is-premium-user",
     {
       headers: { Authorization: token },
     }
@@ -165,7 +165,7 @@ const ispremium = async (e) => {
 btnLeaderBoard.onclick = async () => {
   leaderBoardTitle.textContent = "Leader Board";
   const response = await axios.get(
-    "http://15.206.165.227:3000/premium/showleaderboard",
+    "http://localhost:3000/premium/showleaderboard",
     { headers: { Authorization: token } }
   );
   const data = response.data;
@@ -200,7 +200,7 @@ if (localStorage.getItem("pro") !== null) {
   try {
     if (localStorage.getItem("pro")) {
       const response = await axios.get(
-        "http://15.206.165.227:3000/premium/download",
+        "http://localhost:3000/premium/download",
         {
           headers: { Authorization: token },
         }
@@ -225,7 +225,7 @@ btnDownload.onclick = async () => {
   try {
     if (localStorage.getItem("pro")) {
 
-      const response = await axios.get("http://15.206.165.227:3000/premium/download", {
+      const response = await axios.get("http://localhost:3000/premium/download", {
 
         headers: { Authorization: token },
       });
@@ -258,7 +258,7 @@ function showError(err) {
 
 btnDownloadHistory.onclick = async () => {
   const response = await axios.get(
-    "http://15.206.165.227:3000/premium/alldownloadhistory",
+    "http://localhost:3000/premium/alldownloadhistory",
     { headers: { Authorization: token } }
   );
   DownloadHistoryList.innerHTML = "";
@@ -327,7 +327,7 @@ async function showExpenses(page) {
     ispremium();
     const numberOfRows = localStorage.getItem("rows") || 10;
     const response = await axios.post(
-      `http://15.206.165.227:3000/user/expenses?page=${page}`,
+      `http://localhost:3000/user/expenses?page=${page}`,
       { numberOfRows },
       { headers: { Authorization: token } }
     );
@@ -353,7 +353,7 @@ btnrows.onclick = async () => {
     localStorage.setItem("rows", rows);
     const numberOfRows = localStorage.getItem("rows");
     const response = await axios.post(
-      `http://15.206.165.227:3000/user/expenses?page=${page}`,
+      `http://localhost:3000/user/expenses?page=${page}`,
       { numberOfRows },
       { headers: { Authorization: token } }
     );

@@ -12,7 +12,7 @@ form.addEventListener("submit", async function (e) {
       };
 console.log(obj)
        const res=await axios.post(
-        "http://15.206.165.227:3000/password/forgotpassword",
+        "http://localhost:3000/password/forgotpassword",
         obj
       );
 

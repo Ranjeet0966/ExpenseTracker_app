@@ -20,7 +20,7 @@ form.addEventListener("submit", async function (e) {
 
     try {
       const res = await axios.post(
-        "http://15.206.165.227:3000/user/sign-up",
+        "http://localhost:3000/user/sign-up",
         signUpDetails
       );
 
